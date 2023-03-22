@@ -1,0 +1,123 @@
+<template>
+    <div class="">
+        <div class="header-text mb-5">
+            <p class="has-text-weight-bold">現在のアカウント情報</p>
+            <label class="input-info">現在のあなたのアカウント情報です。変更する情報がある場合は、該当箇所を上書き変更の上、「Save Changes」をクリックしてください。</label>
+        </div>
+        <div class="input-form">
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4">
+                    <label for="user_code" class="has-text-weight-bold">User Code</label>
+                </div>
+                <div class="column is-8">
+                    <input id="user_code" type="text" class="input">
+                </div>
+                <div class="column is-4">
+                </div>
+                <div class="column is-8 p-0">
+                    <label class="input-info">ユーザーコードは変更することはできません。</label>
+                </div>
+            </div>
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4">
+                    <label for="user_code" class="has-text-weight-bold">User Image</label>
+                </div>
+                <div class="column is-8">
+                    <div class="file has-name is-fullwidth">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="resume">
+                            <span class="file-cta">
+                              <span class="file-icon">
+                                <i class="fa fa-upload"></i>
+                              </span>
+                              <span class="file-label">
+                                Choose a file…
+                              </span>
+                            </span>
+                            <span class="file-name">
+                              Screen Shot 2017-07-29 at 15.54.25.png
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="column is-4">
+                </div>
+                <div class="column is-8 p-0">
+                    <label class="input-info">デフォルトは、ZKYLのアイコンです。変更する場合は、画像をクリックしてく選択するか、アップしたい画像をドラッグアンドドロップしてください。なお、画像は、四角形の画像（1MB以下）をアップしてください。</label>
+                </div>
+            </div>
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4">
+                    <label class="has-text-weight-bold">User ID</label>
+                </div>
+                <div class="column is-8">
+                    <input type="text" class="input">
+                </div>
+                <div class="column is-4">
+                </div>
+                <div class="column is-8 p-0">
+                    <label class="input-info">連絡先メールアドレスになります。</label>
+                </div>
+            </div>
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4">
+                    <label class="has-text-weight-bold">User Name</label>
+                </div>
+                <div class="column is-8">
+                    <input type="text" class="input">
+                </div>
+                <div class="column is-4">
+                </div>
+                <div class="column is-8 p-0">
+                    <label class="input-info">お好きなユーザーです。</label>
+                </div>
+            </div>
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4">
+                    <label class="has-text-weight-bold">Gender</label>
+                </div>
+                <div class="column is-8">
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="answer">
+                            男
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="answer">
+                            女
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4">
+                    <label class="has-text-weight-bold">Country</label>
+                </div>
+                <div class="column is-8">
+                    <input type="text" class="input">
+                </div>
+                <div class="column is-4">
+                </div>
+                <div class="column is-8 p-0">
+                    <label class="input-info">あなたの、現在の国籍です。</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "change-info-block"
+}
+</script>
+
+<style scoped>
+    .input-info{
+        color: #acaeb9;
+        font-size: 0.9rem;
+    }
+    .columns > *{
+        padding: 0;
+    }
+</style>
