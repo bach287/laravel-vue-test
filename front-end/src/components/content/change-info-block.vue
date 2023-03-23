@@ -102,13 +102,17 @@
                     <label class="input-info">あなたの、現在の国籍です。</label>
                 </div>
             </div>
+            <div class="column">
+                <button class="button yellow-btn is-pulled-right">Save Changes</button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "change-info-block"
+    name: "change-info-block",
+
 }
 </script>
 
@@ -119,5 +123,10 @@ export default {
     }
     .columns > *{
         padding: 0;
+    }
+    .yellow-btn{
+        background: #f6b832;
+        color: white;
+        border: none;
     }
 </style>
