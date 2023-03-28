@@ -1,7 +1,10 @@
 <template>
     <div>
         <div class="columns is-centered">
-            <div class="column is-8-desktop box payment-content p-0 pt-3">
+<!--            ====================-->
+                <h4 class="title is-4 has-text-centered" v-if="paymentStatus === 1">Your Payment Has Been Completed!</h4>
+<!--            ====================-->
+            <div class="column is-8-desktop box payment-content p-0 pt-3" v-if="paymentStatus === 0">
                 <h4 class="title is-4 has-text-centered">Payment Details</h4>
                 <div class="level p-2">
                     <figure class="level-item image payment-method-icon">
@@ -56,7 +59,10 @@
 
 <script>
 export default {
-    name: "payment-block"
+    name: "payment-block",
+    props:{
+        paymentStatus:Number
+    }
 }
 </script>
 

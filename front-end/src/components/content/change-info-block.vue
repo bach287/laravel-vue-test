@@ -10,7 +10,7 @@
                     <label for="user_code" class="has-text-weight-bold">User Code</label>
                 </div>
                 <div class="column is-8">
-                    <input id="user_code" type="text" class="input">
+                    <input id="user_code" type="text" class="input" v-model="userData['user_code']" >
                 </div>
                 <div class="column is-4">
                 </div>
@@ -35,7 +35,7 @@
                               </span>
                             </span>
                             <span class="file-name">
-                              Screen Shot 2017-07-29 at 15.54.25.png
+                              {{userData['image']}}
                             </span>
                         </label>
                     </div>
@@ -51,7 +51,7 @@
                     <label class="has-text-weight-bold">User ID</label>
                 </div>
                 <div class="column is-8">
-                    <input type="text" class="input">
+                    <input type="text" class="input" v-model="userData['user_id']">
                 </div>
                 <div class="column is-4">
                 </div>
@@ -64,7 +64,7 @@
                     <label class="has-text-weight-bold">User Name</label>
                 </div>
                 <div class="column is-8">
-                    <input type="text" class="input">
+                    <input type="text" class="input" v-model="userData['name']">
                 </div>
                 <div class="column is-4">
                 </div>
@@ -79,11 +79,11 @@
                 <div class="column is-8">
                     <div class="control">
                         <label class="radio">
-                            <input type="radio" name="answer">
+                            <input type="radio" name="gender" value="1" v-model="userData['gender']">
                             男
                         </label>
                         <label class="radio">
-                            <input type="radio" name="answer">
+                            <input type="radio" name="gender" value="2" v-model="userData['gender']">
                             女
                         </label>
                     </div>
@@ -94,7 +94,7 @@
                     <label class="has-text-weight-bold">Country</label>
                 </div>
                 <div class="column is-8">
-                    <input type="text" class="input">
+                    <input type="text" class="input" v-model="userData['country']">
                 </div>
                 <div class="column is-4">
                 </div>
@@ -112,6 +112,17 @@
 <script>
 export default {
     name: "change-info-block",
+    props: {
+        userData: Object
+    },
+    data(){
+        return{
+            inputValue:[]
+        }
+    },
+    methods: {
+
+    },
 
 }
 </script>

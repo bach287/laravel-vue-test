@@ -49,9 +49,12 @@
                 </div>
                 <div class="column is-8 p-6">
                     <change-info-block
-                        v-show="currentContent === 1"/>
+                        v-show="currentContent === 1"
+                        :userData="userData"
+                    />
                     <payment-block
                         v-show="currentContent === 3"
+                        :paymentStatus="userData['payment_status']"
                     />
                 </div>
             </div>
@@ -59,33 +62,47 @@
     </div>
 </template>
 <script>
-    import changeInfoBlock from "./change-info-block.vue";
-    import paymentBlock from "./payment-block.vue";
-    export default {
-        components: {
-            ChangeInfoBlock: changeInfoBlock,
-            PaymentBlock: paymentBlock
-        },
-        data(){
-            return {
-                currentContent: 1,
-            }
-        },
-        methods:{
-            initContent(){
-                document.getElementById("content_"+this.currentContent).classList.add("is-selected")
-            },
-            changeContent(index, event){
-                document.getElementById("content_"+this.currentContent).classList.remove("is-selected")
-                this.currentContent = index;
-                document.getElementById("content_"+index).classList.add("is-selected")
-            },
-
-        },
-        mounted() {
-            this.initContent();
+import changeInfoBlock from "../../components/content/change-info-block.vue";
+import paymentBlock from "../../components/content/payment-block.vue";
+import axios from 'axios';
+export default {
+    components: {
+        ChangeInfoBlock: changeInfoBlock,
+        PaymentBlock: paymentBlock
+    },
+    data(){
+        return {
+            currentContent: 1,
+            userData: []
         }
+    },
+    created() {
+        this.fetchData();
+    },
+    methods:{
+        initContent(){
+            document.getElementById("content_"+this.currentContent).classList.add("is-selected")
+        },
+        changeContent(index, event){
+            document.getElementById("content_"+this.currentContent).classList.remove("is-selected")
+            this.currentContent = index;
+            document.getElementById("content_"+index).classList.add("is-selected")
+        },
+        async fetchData(){
+            const userId = this.$route.query.id
+            axios.get('http://127.0.0.1:8000/user/' + userId)
+            .then(response => {
+                this.userData = response.data
+            })
+            .catch(error =>{
+                console.log('Cannot get user\'s data');
+            })
+        }
+    },
+    mounted() {
+        this.initContent();
     }
+}
 </script>
 <style>
     .content-item{

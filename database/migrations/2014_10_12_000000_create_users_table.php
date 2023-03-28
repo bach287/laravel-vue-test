@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->smallInteger('gender')->default(1);
             $table->string('country');
+            $table->smallInteger('payment_status')->default(0);
             $table->timestamps();
         });
     }

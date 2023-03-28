@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         DB::table('users')->insert([
+             'name' => 'Test User',
+             'user_code' => 'user1',
+             'image' => 'avatar-cute-12.jpeg',
+             'user_id' => 'testuser',
+             'gender' => 1,
+             'country' => 'Vietnam',
+             'payment_status' => 0,
+             'created_at' => Carbon::now()
+         ]);
     }
 }
