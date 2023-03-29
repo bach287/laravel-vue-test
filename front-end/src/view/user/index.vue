@@ -51,6 +51,7 @@
                     <change-info-block
                         v-show="currentContent === 1"
                         :userData="userData"
+                        @submit="submitData"
                     />
                     <payment-block
                         v-show="currentContent === 3"
@@ -97,6 +98,22 @@ export default {
             .catch(error =>{
                 console.log('Cannot get user\'s data');
             })
+        },
+        submitData(inputData){
+            debugger
+            const formData = new FormData();
+            formData.append('user_code', inputData['user_code'])
+            formData.append('user_id', inputData['user_id'])
+            formData.append('gender', inputData['gender'])
+            formData.append('country', inputData['country'])
+            formData.append('image', inputData['image'])
+            formData.append('name', inputData['name'])
+            axios.post('http://127.0.0.1:8000/user/edit', formData)
+            .then(response =>{
+            })
+            .catch(error => {
+                console.log(error.message)
+            });
         }
     },
     mounted() {

@@ -20,4 +20,8 @@ class UserController extends Controller
         $user = User::query()->where('id',$request['id'])->firstOrFail();
         return json_decode($user);
     }
+
+    function updateUser(StoreUser $request){
+
+    }
 }

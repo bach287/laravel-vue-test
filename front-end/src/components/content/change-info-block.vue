@@ -25,7 +25,7 @@
                 <div class="column is-8">
                     <div class="file has-name is-fullwidth">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="resume">
+                            <input class="file-input" type="file" name="resume" accept="image/*" @change="updateImage($event)">
                             <span class="file-cta">
                               <span class="file-icon">
                                 <i class="fa fa-upload"></i>
@@ -103,7 +103,7 @@
                 </div>
             </div>
             <div class="column">
-                <button class="button yellow-btn is-pulled-right">Save Changes</button>
+                <button class="button yellow-btn is-pulled-right" @click="submit()">Save Changes</button>
             </div>
         </div>
     </div>
@@ -121,7 +121,21 @@ export default {
         }
     },
     methods: {
-
+        updateImage(event){
+            if (!event.target.files.length) return
+            this.inputValue['image'] = {
+                name: event.target.files[0].name,
+                file: event.target.files[0]
+            }
+        },
+        submit(){
+            this.inputValue['name'] = this.userData['name'];
+            this.inputValue['user_code'] = this.userData['user_code'];
+            this.inputValue['user_id'] = this.userData['user_id'];
+            this.inputValue['gender'] = this.userData['gender'];
+            this.inputValue['country'] = this.userData['country'];
+            this.$emit('submit', this.inputValue);
+        }
     },
 
 }

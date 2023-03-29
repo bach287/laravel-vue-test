@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/user/{id}', [UserController::class, 'getUser'])->name('user-get');
+Route::post('/user/edit', [UserController::class, 'updateUser'])->name('user-edit');
 
